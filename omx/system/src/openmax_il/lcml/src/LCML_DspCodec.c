@@ -62,8 +62,8 @@
 #define CEXEC_DONE 1
 /*DSP_HNODE hDasfNode;*/
 #define ABS_DLL_NAME_LENGTH 128
-#undef LOG_TAG
-#define LOG_TAG "TI_LCML"
+#undef ALOG_TAG
+#define ALOG_TAG "TI_LCML"
 
 
 /* not all the allocations done at lcml level should be 128 byte aligned so
@@ -510,7 +510,7 @@ ERROR:
     LCML_FREE(argv);
 #endif
     OMX_PRINT1 (((LCML_CODEC_INTERFACE *)hInt)->dbg, "%d :: Exiting Init_DSPSubSystem\n error = %x\n", __LINE__, eError);
-    LOGV("%d :: Exiting Init_DSPSubSystem\n error = %x\n", __LINE__, eError);
+    ALOGV("%d :: Exiting Init_DSPSubSystem\n error = %x\n", __LINE__, eError);
     return eError;
 }
 
@@ -827,7 +827,7 @@ ERROR:
     LCML_FREE(argv);
 #endif
     OMX_PRINT1 (((LCML_CODEC_INTERFACE *)hInt)->dbg, "%d :: Exiting Init_DSPSubSystem\n", __LINE__);
-    LOGV("%d :: Exiting Init_DSPSubSystem %d\n", __LINE__, eError);
+    ALOGV("%d :: Exiting Init_DSPSubSystem %d\n", __LINE__, eError);
     return eError;
 }
 
