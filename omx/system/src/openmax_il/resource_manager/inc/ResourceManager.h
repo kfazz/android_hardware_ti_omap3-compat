@@ -51,17 +51,17 @@
 #define RM_DEBUG
 
 #include <utils/Log.h>
-#undef LOG_TAG
-#define LOG_TAG "OMXRM"
-#define RM_EPRINT LOGE
+#undef ALOG_TAG
+#define ALOG_TAG "OMXRM"
+#define RM_EPRINT ALOGE
 
 #ifdef  RM_DEBUG
-        #define RM_DPRINT LOGD
+        #define RM_DPRINT ALOGD
 #define DSP_ERROR_EXIT(err, msg, label)                \
     if (DSP_FAILED (err)) {                        \
-        LOGD("\n****************RM ERROR : DSP ************************\n");\
-        LOGD("Error: %s : Err Num = %lx", msg, err);  \
-        LOGD("\n****************RM ERROR : DSP ************************\n");\
+        ALOGD("\n****************RM ERROR : DSP ************************\n");\
+        ALOGD("Error: %s : Err Num = %lx", msg, err);  \
+        ALOGD("\n****************RM ERROR : DSP ************************\n");\
         goto label;                               \
     }                                              /**/
 //    fprintf(stdout,__VA_ARGS__)

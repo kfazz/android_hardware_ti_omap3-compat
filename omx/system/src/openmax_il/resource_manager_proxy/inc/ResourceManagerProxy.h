@@ -52,8 +52,8 @@
 
 #ifdef  RMPROXY_DEBUG
         #include <utils/Log.h>
-        #define LOG_TAG "OMXRM PROXY"
-        #define RMPROXY_DPRINT LOGD
+        #define ALOG_TAG "OMXRM PROXY"
+        #define RMPROXY_DPRINT ALOGD
 #else
         #define RMPROXY_DPRINT(...)
 #endif

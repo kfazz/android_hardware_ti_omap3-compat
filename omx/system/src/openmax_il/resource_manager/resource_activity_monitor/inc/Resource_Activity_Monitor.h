@@ -34,9 +34,9 @@
 
 #ifdef RAM_DEBUG
   #include <utils/Log.h>
-  #undef LOG_TAG
-  #define LOG_TAG "OMXRM DVFS MONITOR"
-  #define RAM_DPRINT LOGD
+  #undef ALOG_TAG
+  #define ALOG_TAG "OMXRM DVFS MONITOR"
+  #define RAM_DPRINT ALOGD
 #else
   #define RAM_DPRINT(...)
 #endif

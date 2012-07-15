@@ -74,8 +74,8 @@
 
 #ifdef ANDROID
     /* Log for Android system*/
-    #undef LOG_TAG
-    #define LOG_TAG "OMX_AACDEC"
+    #undef ALOG_TAG
+    #define ALOG_TAG "OMX_AACDEC"
 #endif
  
 #define OBJECTTYPE_LC 2
@@ -261,7 +261,7 @@
     #define AACDEC_MEMPRINT(...)
 #endif
 
-#define AACDEC_EPRINT LOGE
+#define AACDEC_EPRINT ALOGE
 
 #endif
 

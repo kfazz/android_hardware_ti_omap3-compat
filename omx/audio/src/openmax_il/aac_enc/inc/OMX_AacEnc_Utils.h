@@ -48,8 +48,8 @@
 #endif
 
 #ifdef ANDROID
-    #undef LOG_TAG
-    #define LOG_TAG "OMX_AACENC"
+    #undef ALOG_TAG
+    #define ALOG_TAG "OMX_AACENC"
 #endif
 
 #ifdef __PERF_INSTRUMENTATION__

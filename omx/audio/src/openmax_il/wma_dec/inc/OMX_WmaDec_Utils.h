@@ -64,8 +64,8 @@
 #endif
 
 #ifdef ANDROID
-    #undef LOG_TAG
-    #define LOG_TAG "OMX_WMADEC"
+    #undef ALOG_TAG
+    #define ALOG_TAG "OMX_WMADEC"
 #endif
 
 #ifdef UNDER_CE
@@ -369,7 +369,7 @@ typedef struct OMXBufferStatus /*BUFFERSTATUS*/
  */
 /* ======================================================================= */
 #ifndef UNDER_CE
-#define WMADEC_EPRINT LOGE
+#define WMADEC_EPRINT ALOGE
 #else
 #define WMADEC_EPRINT		  printf
 #endif
@@ -380,7 +380,7 @@ typedef struct OMXBufferStatus /*BUFFERSTATUS*/
 /* ======================================================================= */
 #ifndef UNDER_CE
 #ifdef  WMADEC_DEBUG
-#define WMADEC_DPRINT LOGI
+#define WMADEC_DPRINT ALOGI
 #else
 #define WMADEC_DPRINT(...)
 #endif

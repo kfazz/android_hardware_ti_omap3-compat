@@ -65,7 +65,7 @@
 #include <OMX_TI_Debug.h>
 
 #include <utils/Log.h>
-#define LOG_TAG "OMX_JPGDEC"
+#define ALOG_TAG "OMX_JPGDEC"
 
 /* disable resource manager */
 #ifdef RESOURCE_MANAGER_ENABLED
