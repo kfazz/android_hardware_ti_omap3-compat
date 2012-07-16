@@ -1,4 +1,3 @@
-if 0
 LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
 
@@ -8,7 +7,8 @@ LOCAL_SRC_FILES := \
 LOCAL_CFLAGS := $(PV_CFLAGS_MINUS_VISIBILITY)
 
 LOCAL_C_INCLUDES:= \
-    $(ANDROID_BUILD_TOP)/frameworks/base/include/media/stagefright/openmax
+    $(ANDROID_BUILD_TOP)/frameworks/native/include/media/openmax \
+    $(ANDROID_BUILD_TOP)/frameworks/native/include/media/hardware
 
 LOCAL_SHARED_LIBRARIES := \
     libbinder \
@@ -16,8 +16,8 @@ LOCAL_SHARED_LIBRARIES := \
     libcutils \
     libui     \
     libdl     \
+    libstagefright_foundation
 
 LOCAL_MODULE := libstagefrighthw
 
 include $(BUILD_SHARED_LIBRARY)
-endif
