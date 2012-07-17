@@ -60,10 +60,10 @@
     #endif
 #include <OMX_TI_Debug.h>
 #include <OMX_Component.h>
-#ifdef ALOG_TAG
-    #undef ALOG_TAG
+#ifdef LOG_TAG
+    #undef LOG_TAG
 #endif
-#define ALOG_TAG "TI_OMX_VideoEnc"
+#define LOG_TAG "TI_OMX_VideoEnc"
 
 #ifdef UNDER_CE
     #include <oaf_debug.h>

@@ -26,7 +26,7 @@
 #ifdef ANDROID
 /* Log for Android system*/
 #include <utils/Log.h>
-#define ALOG_TAG "TI_Video_Decoder"
+#define LOG_TAG "TI_Video_Decoder"
 #endif
 #include <cutils/properties.h>
 

@@ -64,8 +64,8 @@
 #endif
 
 #ifdef ANDROID
-    #undef ALOG_TAG
-    #define ALOG_TAG "OMX_WMADEC"
+    #undef LOG_TAG
+    #define LOG_TAG "OMX_WMADEC"
 #endif
 
 #ifdef UNDER_CE

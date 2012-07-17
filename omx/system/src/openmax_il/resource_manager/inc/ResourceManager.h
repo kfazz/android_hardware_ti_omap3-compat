@@ -51,8 +51,8 @@
 #define RM_DEBUG
 
 #include <utils/Log.h>
-#undef ALOG_TAG
-#define ALOG_TAG "OMXRM"
+#undef LOG_TAG
+#define LOG_TAG "OMXRM"
 #define RM_EPRINT ALOGE
 
 #ifdef  RM_DEBUG

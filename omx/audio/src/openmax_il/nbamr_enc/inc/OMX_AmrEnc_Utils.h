@@ -87,8 +87,8 @@
 #endif
 
 #ifdef ANDROID
-    #undef ALOG_TAG
-    #define ALOG_TAG "OMX_NBAMRENC"
+    #undef LOG_TAG
+    #define LOG_TAG "OMX_NBAMRENC"
 #endif
 
 /* ======================================================================= */

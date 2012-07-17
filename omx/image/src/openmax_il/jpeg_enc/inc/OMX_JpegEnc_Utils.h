@@ -71,7 +71,7 @@
 #include "OMX_JpegEnc_CustomCmd.h"
 
 #include <utils/Log.h>
-#define ALOG_TAG "OMX_JPGENC"
+#define LOG_TAG "OMX_JPGENC"
 
 #ifdef __PERF_INSTRUMENTATION__
 #include "perf.h"
