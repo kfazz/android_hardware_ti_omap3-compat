@@ -54,7 +54,7 @@
 #include "OMX_VideoDec_Utils.h"
 #include "OMX_VideoDec_DSP.h"
 #include "OMX_VideoDec_Thread.h"
-#define ALOG_TAG "TI_Video_Decoder"
+#define LOG_TAG "TI_Video_Decoder"
 /*----------------------------------------------------------------------------*/
 /**
   * VIDDEC_GetRMFrecuency() Return the value for frecuecny to use RM.

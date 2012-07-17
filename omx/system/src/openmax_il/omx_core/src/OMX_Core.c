@@ -13,8 +13,8 @@
 #include <pthread.h>
 #include <utils/Log.h>
 
-#undef ALOG_TAG
-#define ALOG_TAG "TIOMX_CORE"
+#undef LOG_TAG
+#define LOG_TAG "TIOMX_CORE"
 
 #include "OMX_Component.h"
 #include "OMX_Core.h"
