@@ -222,12 +222,7 @@ typedef enum OMX_INDEXTYPE {
     OMX_IndexConfigOtherPower,              /**< reference: OMX_OTHER_CONFIG_POWERTYPE */
     OMX_IndexConfigOtherStats,              /**< reference: OMX_OTHER_CONFIG_STATSTYPE */
 
-    /* ICS: media/stagefright/HardwareAPI.h */
-    OMX_TI_IndexEnableNativeBuffers,               /**< reference: OMX_TI_PARAM_ENABLENATIVEBUFFER */
-    OMX_TI_IndexUseNativeBuffers,                  /**< reference: OMX_TI_PARAM_USENATIVEBUFFER */
-    OMX_TI_IndexEncoderStoreMetadatInBuffers,      /**< reference: OMX_TI_PARAM_METADATAINBUFFERS (to check 0x8000101a) */
-    OMX_TI_IndexParamMetaDataBufferInfo,           /**< reference: OMX_TI_PARAM_METADATABUFFERINFO */
-    OMX_TI_IndexAndroidNativeBufferUsage,          /**< reference: OMX_TI_PARAM_NATIVEBUFFERUSAGE */
+    OMX_TI_IndexAndroidNativeBufferUsage,          /**< reference: OMX_TI_IndexAndroidNativeBufferUsage */
 
     /* Reserved Time range */
     OMX_IndexTimeStartUnused = 0x09000000,

@@ -1391,7 +1391,6 @@ static OMX_ERRORTYPE GetParameter (OMX_IN OMX_HANDLETYPE hComponent,
     OMX_U32* pTmp                               = NULL;
     VIDEOENC_PORT_TYPE* pCompPortIn             = NULL;
     VIDEOENC_PORT_TYPE* pCompPortOut            = NULL;
-    OMX_TI_PARAM_METADATAINBUFFERS* pStore      = NULL;
 
     OMX_CONF_CHECK_CMD(hComponent, ((OMX_COMPONENTTYPE *) hComponent)->pComponentPrivate, 1);
 
@@ -1757,20 +1756,12 @@ static OMX_ERRORTYPE GetParameter (OMX_IN OMX_HANDLETYPE hComponent,
         case VideoEncodeCustomConfigIndexUnrestrictedMV:
             (*((OMX_U8*)ComponentParameterStructure)) = (OMX_U8)pComponentPrivate->ucUnrestrictedMV;
             break;
-        case VideoEncodeCustomParamIndexNALFormat:
+       case VideoEncodeCustomParamIndexNALFormat:
            (*((unsigned int*)ComponentParameterStructure)) = (unsigned int)pComponentPrivate->AVCNALFormat;
            break;
-
-        /* ICS */
-        case OMX_TI_IndexEncoderStoreMetadatInBuffers: /* frameworks index seems 0x8000101a */
-            pStore = (OMX_TI_PARAM_METADATAINBUFFERS*) ComponentParameterStructure;
-            pStore->bStoreMetaData = pComponentPrivate->bStoreMetaDataInBuffers;
-            break;
-
-        //not supported yet
-        case OMX_IndexConfigCommonRotate:
-            break;
-
+       //not supported yet
+       case OMX_IndexConfigCommonRotate:
+           break;
         default:
             eError = OMX_ErrorUnsupportedIndex;
             break;
@@ -1810,8 +1801,6 @@ static OMX_ERRORTYPE SetParameter (OMX_IN OMX_HANDLETYPE hComponent,
     OMX_PARAM_COMPONENTROLETYPE  *pRole = NULL;
     OMX_VIDEO_PARAM_PROFILELEVELTYPE* sProfileLevel;
 #endif
-    OMX_TI_PARAM_METADATAINBUFFERS *pStore = NULL;
-
     OMX_CONF_CHECK_CMD(hComponent, ((OMX_COMPONENTTYPE *) hComponent)->pComponentPrivate, 1);
 
     pComponentPrivate = (VIDENC_COMPONENT_PRIVATE*)(((OMX_COMPONENTTYPE*)hComponent)->pComponentPrivate);
@@ -2088,7 +2077,7 @@ static OMX_ERRORTYPE SetParameter (OMX_IN OMX_HANDLETYPE hComponent,
             break;
 
 #ifdef __KHRONOS_CONF_1_1__
-        case OMX_IndexParamStandardComponentRole:
+    case OMX_IndexParamStandardComponentRole:
         if (pCompParam)
         {
             pRole = (OMX_PARAM_COMPONENTROLETYPE *)pCompParam;
@@ -2125,7 +2114,7 @@ static OMX_ERRORTYPE SetParameter (OMX_IN OMX_HANDLETYPE hComponent,
         }
         break;
 
-        case OMX_IndexParamVideoProfileLevelCurrent:
+    case OMX_IndexParamVideoProfileLevelCurrent:
         {
            VIDEO_PROFILE_LEVEL_TYPE* pProfileLevel = NULL;
            OMX_VIDEO_PARAM_PROFILELEVELTYPE *pParamProfileLevel = (OMX_VIDEO_PARAM_PROFILELEVELTYPE *)pCompParam;
@@ -2179,25 +2168,19 @@ static OMX_ERRORTYPE SetParameter (OMX_IN OMX_HANDLETYPE hComponent,
         }
         break;
 #endif
-        case OMX_TI_IndexEncoderStoreMetadatInBuffers: /* frameworks index seems 0x8000101a */
-            pStore = (OMX_TI_PARAM_METADATAINBUFFERS*) pCompParam;
-            pComponentPrivate->bStoreMetaDataInBuffers = pStore->bStoreMetaData;
-            break;
-
         /*valid for H264 only*/
         case VideoEncodeCustomParamIndexEncodingPreset:
-            pComponentPrivate->nEncodingPreset = (unsigned int)(*((unsigned int*)pCompParam));
+                pComponentPrivate->nEncodingPreset = (unsigned int)(*((unsigned int*)pCompParam));
             break;
         case VideoEncodeCustomConfigIndexUnrestrictedMV:
             pComponentPrivate->ucUnrestrictedMV = (OMX_U8)(*((OMX_U8*)pCompParam));
             break;
-        case VideoEncodeCustomParamIndexNALFormat:
-            pComponentPrivate->AVCNALFormat = (VIDENC_AVC_NAL_FORMAT)(*((unsigned int*)pCompParam));
-            break;
-
-        //not supported yet
-        case OMX_IndexConfigCommonRotate:
-            break;
+       case VideoEncodeCustomParamIndexNALFormat:
+              pComponentPrivate->AVCNALFormat = (VIDENC_AVC_NAL_FORMAT)(*((unsigned int*)pCompParam));
+       break;
+       //not supported yet
+       case OMX_IndexConfigCommonRotate:
+       break;
 
         default:
             eError = OMX_ErrorUnsupportedIndex;
@@ -2638,12 +2621,7 @@ static OMX_ERRORTYPE ExtensionIndex(OMX_IN OMX_HANDLETYPE hComponent,
         {"OMX.TI.VideoEncode.Config.Intra4x4EnableIdc", VideoEncodeCustomConfigIndexIntra4x4EnableIdc},
         {"OMX.TI.VideoEncode.Config.EncodingPreset", VideoEncodeCustomParamIndexEncodingPreset},
         {"OMX.TI.VideoEncode.Config.NALFormat", VideoEncodeCustomParamIndexNALFormat},
-        {"OMX.TI.VideoEncode.Debug", VideoEncodeCustomConfigIndexDebug},
-        /* ICS */
-        {"OMX.google.android.index.enableAndroidNativeBuffers", OMX_TI_IndexEnableNativeBuffers},
-        {"OMX.google.android.index.useAndroidNativeBuffer", OMX_TI_IndexUseNativeBuffers},
-        {"OMX.google.android.index.getAndroidNativeBufferUsage", OMX_TI_IndexAndroidNativeBufferUsage},
-        {"OMX.google.android.index.storeMetaDataInBuffers", OMX_TI_IndexEncoderStoreMetadatInBuffers},
+        {"OMX.TI.VideoEncode.Debug", VideoEncodeCustomConfigIndexDebug}
     };
     OMX_ERRORTYPE eError = OMX_ErrorNone;
     int nIndex = 0;
@@ -2664,8 +2642,6 @@ static OMX_ERRORTYPE ExtensionIndex(OMX_IN OMX_HANDLETYPE hComponent,
             break;
         }
     }
-
-
 
 OMX_CONF_CMD_BAIL:
     return eError;
