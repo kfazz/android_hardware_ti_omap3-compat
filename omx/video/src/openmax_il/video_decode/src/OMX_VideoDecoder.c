@@ -785,7 +785,6 @@ static OMX_ERRORTYPE VIDDEC_GetParameter (OMX_IN OMX_HANDLETYPE hComponent,
     OMX_COMPONENTTYPE* pComp = NULL;
     VIDDEC_COMPONENT_PRIVATE* pComponentPrivate = NULL;
     OMX_ERRORTYPE eError = OMX_ErrorNone;
-    OMX_TI_PARAMNATIVEBUFFERUSAGE *pUsage = NULL;
 #ifdef KHRONOS_1_1
     OMX_PARAM_COMPONENTROLETYPE *pRole = NULL;
 #endif
@@ -815,10 +814,6 @@ static OMX_ERRORTYPE VIDDEC_GetParameter (OMX_IN OMX_HANDLETYPE hComponent,
         }
         case OMX_IndexParamVideoInit:
             memcpy(ComponentParameterStructure, pComponentPrivate->pPortParamType, sizeof(OMX_PORT_PARAM_TYPE));
-            break;
-        case OMX_TI_IndexAndroidNativeBufferUsage:
-            pUsage = (OMX_TI_PARAMNATIVEBUFFERUSAGE *)ComponentParameterStructure;
-            pUsage->nUsage = GRALLOC_USAGE_HW_TEXTURE;
             break;
 #ifdef __STD_COMPONENT__
         case OMX_IndexParamAudioInit:
@@ -3957,12 +3952,6 @@ static OMX_ERRORTYPE VIDDEC_GetExtensionIndex(OMX_IN OMX_HANDLETYPE hComponent, 
     int nIndex;
 
     OMX_ERRORTYPE eError = OMX_ErrorUndefined;
-
-    if (strcmp(cParameterName, "OMX.google.android.index.getAndroidNativeBufferUsage") == 0)
-    {
-        *pIndexType = (OMX_INDEXTYPE) OMX_TI_IndexAndroidNativeBufferUsage;
-    }
-
     OMX_CONF_CHECK_CMD(hComponent, OMX_TRUE, OMX_TRUE);
     for(nIndex = 0; nIndex < sizeof(sVideoDecCustomParams)/sizeof(VIDDEC_CUSTOM_PARAM); nIndex++) {
         if(strcmp((char *)cParameterName, (char *)&(sVideoDecCustomParams[nIndex].cCustomParamName)) == 0) {
