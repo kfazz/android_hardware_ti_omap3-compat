@@ -1,3 +1,4 @@
+HARDWARE_OMX := true
 ifeq ($(HARDWARE_OMX),true)
 
 LOCAL_PATH := $(call my-dir)
